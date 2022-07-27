@@ -4,7 +4,7 @@ Function.prototype.myApply = function (content) {
   content[key] = this;
   let res;
   if (arguments[1]) {
-    res = content[key](arguments[1])
+    res = content[key](...arguments[1])
   } else {
     res = content[key]()
   }
