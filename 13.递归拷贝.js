@@ -17,4 +17,4 @@ function deepClone(obj, cache = new WeakMap()) {
 let obj = {name: '杰克', add:{a: 1, b:3}}
 obj.a = obj;
 const obj1 = deepClone(obj)
-console.log(obj1.add === obj.add) // false
+console.log(obj1.add === obj.add, obj1, obj) // false
