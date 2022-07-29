@@ -2,8 +2,8 @@
 // 
 function selectSort(arr) {
   let len = arr.length;
+  let minIndex, temp;
   for (let i = 0; i < len - 1; i++) {
-    let minIndex;
     for (let j = i + 1; j < len; j++) {
       if (arr[minIndex] > arr[j]) {
         minIndex = j
