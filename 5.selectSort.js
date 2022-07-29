@@ -4,6 +4,7 @@ function selectSort(arr) {
   let len = arr.length;
   let minIndex, temp;
   for (let i = 0; i < len - 1; i++) {
+    minIndex = i;
     for (let j = i + 1; j < len; j++) {
       if (arr[minIndex] > arr[j]) {
         minIndex = j
@@ -18,4 +19,4 @@ function selectSort(arr) {
 }
 // test
 const arr = [3, 1, 2, 5, 4]
-console.log(selectSort2(arr)) // [1, 2, 3, 4, 5]
+console.log(selectSort(arr)) // [1, 2, 3, 4, 5]
