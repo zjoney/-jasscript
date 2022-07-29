@@ -138,15 +138,6 @@ class Promise {
     })
   }
 }
-// 默认测试的时候会调用此方法 会检测这个方法返回的对象是否符合规范 这个对象上需要有promise实例 resolve和reject
-Promise.deferred = function () {
-  let dfd = {}
-  dfd.promise = new Promise((resolve, reject) => {
-    dfd.resolve = resolve;
-    dfd.reject = reject;
-  })
-  return dfd;
-}
 new Promise((resolve, reject) => {
   reject(100)
 }).then().then().then(null, function (data) {
