@@ -9,6 +9,47 @@ function push(heap, node) {
   heap.push(node);
   siftUp(heap, node, index)
 }
+function pop(heap) {
+  const first = heap[0]
+  if (first !== undefined) {
+    const last = heap.pop()
+    if (first !== last) {
+      heap[0] = last;
+      siftDown(heap, last, 0)
+    }
+  }
+  return null;
+}
+function siftDown(heap, node, i) {
+  let index = i;
+  const length = heap.length;
+  while (index < length) {
+    const leftIndex = (index + 1) * 2 - 1;
+    const left = heap[leftIndex];
+    const rightIndex = leftIndex + 1;
+    const right = heap[rightIndex];
+    // 如果左子节点 小于父节点
+    if (left !== undefined && compare(left, node) < 0) {
+      // 比较左子节点 和右子节点
+      if (right !== undefined && compare(right, left) < 0) {
+        // 让父节点和右子节点交换
+        heap[index] = right;
+        heap[rightIndex] = node;
+        index = rightIndex;
+      } else {
+        heap[index] = left;
+        heap[leftIndex] = node;
+        index = leftIndex;
+      }
+    } else if (right !== undefined && compare(right, node) < 0) {
+      heap[index] = right;
+      heap[rightIndex] = node;
+      index = rightIndex;
+    } else {
+      return;
+    }
+  }
+}
 /**
  * 
  * @param {*} heap 
@@ -47,6 +88,6 @@ function compare(a, b) {
 
 module.exports = {
   push,
-  // pop, 
+  pop,
   peek
 }

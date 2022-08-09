@@ -1,6 +1,6 @@
 const {
   push,
-  // pop,
+  pop,
   peek
 } = require('./ScheduleMinHeap.js')
 let heap = [];
@@ -13,5 +13,5 @@ push(heap, { sortIndex: 5 });
 push(heap, { sortIndex: 6 });
 push(heap, { sortIndex: 7 });
 console.log(peek(heap));// 1
-// pop(heap)
+pop(heap)
 console.log(peek(heap)); // 2
