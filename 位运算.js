@@ -18,10 +18,10 @@
 // 3.js-----------------
 let a = 0b001;
 // 左移
-console.log((a<<2).toString()); // 4
+console.log((a << 2).toString()); // 4
 // 无符号右移>>> 丢弃被移除的位，左侧补0
 let b = 0b100;
-console.log((b>>>1).toString(2)); //0b010
+console.log((b >>> 1).toString(2)); //0b010
 // console.log((b>>>1).toString()); //2
 // 有符号的右移，丢弃被移除的位，左侧填充最高位
 let c = 0b101; // 正常来算5 符号位来算 -3
@@ -29,8 +29,18 @@ let c = 0b101; // 正常来算5 符号位来算 -3
 // console.log((c>>1).toString(2))
 // 101
 // 110-对应大图-2
-console.log((-3>>1).toString(2))
-
+console.log((-3 >> 1).toString(2))
+/**
+ * 获取优先级最低的
+ * const InputDiscreteLanes = 0b11000
+ * @param {*} lines 
+ */
+const InputDiscreteLanes = 0b11000
+function getLowersPriotyLane(lines) {
+  let index = 31 - Math.clz32(lines)
+  return 1 << index;
+}
+console.log(getLowersPriotyLane(InputDiscreteLanes));//0b10000 ->16
 
 
 
