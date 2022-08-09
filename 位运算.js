@@ -37,10 +37,25 @@ console.log((-3 >> 1).toString(2))
  */
 const InputDiscreteLanes = 0b11000
 function getLowersPriotyLane(lines) {
+  // 0000000000000000000000000011000
+  // 31-26 = 5
+  // 1<<4 10000
   let index = 31 - Math.clz32(lines)
+  console.log('index', index);// 4
+  console.log('Math.clz32(lines)', Math.clz32(lines));
   return 1 << index;
 }
 console.log(getLowersPriotyLane(InputDiscreteLanes));//0b10000 ->16
 
-
+/**
+ * 获取高位
+ * @param {*} lines 0b11000
+ * 
+ */
+// 11000
+// 
+function getHighestPriotyLane(lanes) {
+  return lanes & -lanes;
+}
+console.log(getHighestPriotyLane(InputDiscreteLanes));
 
