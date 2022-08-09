@@ -10,24 +10,32 @@ function push(heap, node) {
   siftUp(heap, node, index)
 }
 /**
+ * 
+ * @param {*} heap 
+ */
+function peek(heap) {
+  const first = heap[0]
+  return first;
+}
+/**
  * 向上调整
  * @param {*} heap 最小堆
  * @param {*} node 需要调整的节点
  * @param {*} index 当前节点索引
  */
-function siftUp(heap, node, index) {
-  let indec = i;
+function siftUp(heap, node, i) {
+  let index = i;
   while (true) {
     // Math.floor(index-1)/2
-    const parentIndex = index - 1 >>> 1
-    const parent = heap[parentIndex]
+    const parentIndex = index - 1 >>> 1;
+    const parent = heap[parentIndex];
     //  大于 需要交换位置，向上调整
     if (parent !== undefined && compare(parent, node) > 0) {
       heap[parentIndex] = node;
       heap[index] = parent;
       index = parentIndex;
     } else {
-      return ;
+      return;
     }
   }
 }
@@ -37,6 +45,8 @@ function compare(a, b) {
   return diff;
 }
 
-module.export ={
-  push, pop, peek
+module.exports = {
+  push,
+  // pop, 
+  peek
 }
